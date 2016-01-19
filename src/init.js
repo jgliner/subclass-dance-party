@@ -51,13 +51,24 @@ $(document).ready(function() {
       $('.barrier').append(carlton.$node);
     });
 
-    setTimeout(function(){
-      var cage = new makeCage();
-      var numDancers = window.dancers.length;
-      for(var i = 0; i < numDancers; i++){
-        window.dancers.splice(0, 1);
-      }
-      $(document).append();
-    });
+    // setTimeout(function(){
+    //   var cage = new makeCage();
+    //   var numDancers = window.dancers.length;
+    //   // for(var i = 0; i < numDancers; i++){
+    //   //   window.dancers.splice(0, 1);
+    //   // }
+    //   $('.topbar').append(cage.$node);
+    // }, 5000);
+
+  $('.barrier').on('mouseenter', '.dancer', function() {
+    var pos = $(this).position().top;
+    $(this).css({'top': `${(pos)+50}px`, 'transition': 'all 0.5s'});
+    setTimeout(function() {
+      $(this).css({'top': `${(pos)-50}px`, 'transition': 'all 0.5s'});
+    }, 100);
+  });
+  $('.barrier').on('mouseleave', '.dancer', function() {
+   $(this).css('transition', 'all 4s');
+  });
 });
 
