@@ -1,6 +1,7 @@
 var makeSnoop = function(top, left, name) {
-  this.$node = $('<span class="dancer snoop"></span>');
   makeDancer.call(this, top, left);
+
+  this.$node = $('<img class="dancer snoop" src="./resources/snoop.gif">');
   this.name = name;
 };
 

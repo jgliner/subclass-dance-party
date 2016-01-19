@@ -23,8 +23,6 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
   transition: all 4s;
 }
@@ -43,7 +41,9 @@ button {
 }
 
 .snoop {
-  background-image: url(./resources/snoop.gif);  
+  width: 50%;
+  height: 50%;
+  transform: translate(0%, -50%)
 }
 
 .carlton {

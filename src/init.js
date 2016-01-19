@@ -1,7 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
 
-  $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -20,18 +19,8 @@ $(document).ready(function() {
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
-
-    var dancer = new dancerMakerFunction(
-      $(".barrier").height() * Math.random(),
-      $(".barrier").width() * Math.random(),
-      Math.random() * 1000
-    );
-    dancer.init();
-    window.dancers.push(dancer);
-    $('.barrier').append(dancer.$node);
-
     $('.lineupButton').on('click', function() {
+      console.log('lineup')
       var w = $('.barrier').width()/window.dancers.length;
       var distr = 0;
       window.dancers.forEach(function(dancer) {
@@ -42,7 +31,7 @@ $(document).ready(function() {
       });
     });
 
-    $('.snoopButton').on('click', function(){
+    $('.snoopButton').click(function(){
       console.log('fo rizzle');
       var snoop = new makeSnoop(
       $(".barrier").height() * Math.random(),
@@ -54,6 +43,7 @@ $(document).ready(function() {
     });
 
     $('.carltonButton').on('click', function(){
+      console.log('yo')
       var carlton = new makeCarlton(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
@@ -62,6 +52,5 @@ $(document).ready(function() {
       window.dancers.push(carlton);
       $('.barrier').append(carlton.$node).addClass('carlton');
     });
-  });
 });
 
