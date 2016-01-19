@@ -32,25 +32,32 @@ $(document).ready(function() {
     });
 
     $('.snoopButton').click(function(){
-      console.log('fo rizzle');
       var snoop = new makeSnoop(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
       'snoop');
       snoop.init();
       window.dancers.push(snoop);
-      $('.barrier').append(snoop.$node).addClass('snoop');
+      $('.barrier').append(snoop.$node);
     });
 
-    $('.carltonButton').on('click', function(){
-      console.log('yo')
+    $('.carltonButton').click(function(){
       var carlton = new makeCarlton(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
-      'carlton');
+      'snoop');
       carlton.init();
       window.dancers.push(carlton);
-      $('.barrier').append(carlton.$node).addClass('carlton');
+      $('.barrier').append(carlton.$node);
+    });
+
+    setTimeout(function(){
+      var cage = new makeCage();
+      var numDancers = window.dancers.length;
+      for(var i = 0; i < numDancers; i++){
+        window.dancers.splice(0, 1);
+      }
+      $(document).append();
     });
 });
 

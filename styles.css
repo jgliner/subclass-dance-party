@@ -41,11 +41,11 @@ button {
 }
 
 .snoop {
-  width: 50%;
-  height: 50%;
+  height: 70%;
   transform: translate(0%, -50%)
 }
 
 .carlton {
-  background-image: url(./resources/carlton.gif);
+  height: 75%;
+  transform: translate(0%, -50%)
 }
