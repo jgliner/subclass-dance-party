@@ -32,6 +32,20 @@ body, a:link, a:visited, a:active{
 .barrier{
   position: absolute;
   top: 70vh;
-  width: 100%;
+  width: 90%;
   height: 30vh;
+}
+
+button {
+  position: relative;
+  left: 50px;
+  top: 5px;
+}
+
+.snoop {
+  background-image: url(./resources/snoop.gif);  
+}
+
+.carlton {
+  background-image: url(./resources/carlton.gif);
 }

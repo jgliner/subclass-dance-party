@@ -41,6 +41,27 @@ $(document).ready(function() {
         distr += w;
       });
     });
+
+    $('.snoopButton').on('click', function(){
+      console.log('fo rizzle');
+      var snoop = new makeSnoop(
+      $(".barrier").height() * Math.random(),
+      $(".barrier").width() * Math.random(),
+      'snoop');
+      snoop.init();
+      window.dancers.push(snoop);
+      $('.barrier').append(snoop.$node).addClass('snoop');
+    });
+
+    $('.carltonButton').on('click', function(){
+      var carlton = new makeCarlton(
+      $(".barrier").height() * Math.random(),
+      $(".barrier").width() * Math.random(),
+      'carlton');
+      carlton.init();
+      window.dancers.push(carlton);
+      $('.barrier').append(carlton.$node).addClass('carlton');
+    });
   });
 });
 
