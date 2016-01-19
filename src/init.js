@@ -28,7 +28,19 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     dancer.init();
+    window.dancers.push(dancer);
     $('.barrier').append(dancer.$node);
+
+    $('.lineupButton').on('click', function() {
+      var w = $('.barrier').width()/window.dancers.length;
+      var distr = 0;
+      window.dancers.forEach(function(dancer) {
+        dancer.top = $('.barrier').height()/2;
+        dancer.left = w+distr;
+        dancer.setPosition();
+        distr += w;
+      });
+    });
   });
 });
 

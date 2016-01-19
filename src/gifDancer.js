@@ -10,8 +10,7 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 makeBlinkyDancer.prototype.step = function() {
   var self = this;
   setTimeout(function() {
-    // Commented out to prevent blinking while testing
-    //self.$node.toggle();
+    self.$node.toggle();
     self.step();
   }, this.timeBetweenSteps);
 };
