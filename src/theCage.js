@@ -1,8 +1,7 @@
-var makeCage = function(top, left, name) {
-  makeDancer.call(this, top, left);
-  this.$node = $('<img class="dancer cage" src="./resources/snoop.gif">');
+var makeCage = function() {
+  this.$node = $('<img class="cage" src="./resources/cage.png">');
   this.name = name;
+  console.log(this)
 };
 
-makeSnoop.prototype = Object.create(makeDancer.prototype);
-makeSnoop.prototype.constructor = makeCage;
+makeCage.prototype.constructor = makeCage;

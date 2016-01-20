@@ -1,5 +1,9 @@
 $(document).ready(function() {
   window.dancers = [];
+  (function(){
+    var sound = new Audio('./resources/ts.mp3');
+    sound.play();
+  })();
 
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -20,19 +24,25 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     $('.lineupButton').on('click', function() {
-      console.log('lineup')
       var w = $('.barrier').width()/window.dancers.length;
-      var distr = 0;
-      window.dancers.forEach(function(dancer) {
-        dancer.top = $('.barrier').height()/2;
-        dancer.left = w+distr;
-        dancer.setPosition();
-        distr += w;
-      });
+      var distr = -($('.barrier').height()/2);
+      if (dancers.length < 2) {
+        dancers[0].top = $('.barrier').height()/2;
+        dancers[0].left = w/2;
+        dancers[0].setPosition();
+      }
+      else {
+        window.dancers.forEach(function(dancer) {
+          dancer.top = $('.barrier').height()/2;
+          dancer.left = w+distr;
+          dancer.setPosition();
+          distr += w;
+        });
+      }
     });
 
     $('.snoopButton').click(function(){
-      var snoop = new makeSnoop(
+      var snoop = new Snoop(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
       'snoop');
@@ -42,7 +52,7 @@ $(document).ready(function() {
     });
 
     $('.carltonButton').click(function(){
-      var carlton = new makeCarlton(
+      var carlton = new Carlton(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
       'snoop');
@@ -52,7 +62,7 @@ $(document).ready(function() {
     });
 
     $('.paulButton').click(function(){
-      var paul = new makePaul(
+      var paul = new Paul(
       $(".barrier").height() * Math.random(),
       $(".barrier").width() * Math.random(),
       'snoop');
@@ -70,11 +80,13 @@ $(document).ready(function() {
     //   $('.topbar').append(cage.$node);
     // }, 5000);
 
-  $('.barrier').on('mouseenter', '.dancer', function() {
+  $('.barrier').on('mouseover', '.dancer', function() {
     var pos = $(this).position().top;
-    $(this).css({'top': `${(pos)+50}px`, 'transition': 'all 0.5s'});
+    var self = this;
+    $(this).css({'top': `${(pos)-160}px`, 'transition': 'all 0.1s'});
     setTimeout(function() {
-      $(this).css({'top': `${(pos)-50}px`, 'transition': 'all 0.5s'});
+      console.log("setTimeout", pos);
+      $(self).css({'top': `${(pos)+80}px`, 'transition': 'all 0.5s'});
     }, 100);
   });
   $('.barrier').on('mouseleave', '.dancer', function() {

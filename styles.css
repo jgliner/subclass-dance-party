@@ -25,6 +25,7 @@ body, a:link, a:visited, a:active{
 .dancer{
   position:absolute;
   transition: all 4s;
+  transition-timing-function: linear;
 }
 
 .barrier{

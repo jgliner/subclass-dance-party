@@ -1,8 +1,8 @@
-var makeCarlton = function(top, left, name) {
-  makeDancer.call(this, top, left);
+var Carlton = function(top, left, name) {
+  Dancer.call(this, top, left);
   this.$node = $('<img class="dancer carlton" src="./resources/carlton.gif">');
   this.name = name;
 };
 
-makeCarlton.prototype = Object.create(makeDancer.prototype);
-makeCarlton.prototype.constructor = makeCarlton;
+Carlton.prototype = Object.create(Dancer.prototype);
+Carlton.prototype.constructor = Carlton;
