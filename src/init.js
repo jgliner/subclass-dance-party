@@ -51,6 +51,16 @@ $(document).ready(function() {
       $('.barrier').append(carlton.$node);
     });
 
+    $('.paulButton').click(function(){
+      var paul = new makePaul(
+      $(".barrier").height() * Math.random(),
+      $(".barrier").width() * Math.random(),
+      'snoop');
+      paul.init();
+      window.dancers.push(paul);
+      $('.barrier').append(paul.$node);
+    });
+
     // setTimeout(function(){
     //   var cage = new makeCage();
     //   var numDancers = window.dancers.length;
