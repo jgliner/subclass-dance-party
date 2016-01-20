@@ -31,6 +31,7 @@ body, a:link, a:visited, a:active{
 .barrier{
   position: absolute;
   top: 70vh;
+  left: 5vw;
   width: 90%;
   height: 30vh;
 }
@@ -43,15 +44,15 @@ button {
 
 .snoop {
   height: 70%;
-  transform: translate(0%, -50%)
+  transform: translate(-50%, -50%)
 }
 
 .carlton {
   height: 75%;
-  transform: translate(0%, -50%)
+  transform: translate(-50%, -50%)
 }
 
 .paul {
   height: 75%;
-  transform: translate(0%, -50%)
+  transform: translate(-50%, -50%)
 }

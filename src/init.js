@@ -1,9 +1,13 @@
 $(document).ready(function() {
   window.dancers = [];
-  (function(){
-    var sound = new Audio('./resources/ts.mp3');
-    sound.play();
-  })();
+  var audioOn = false;
+  $('button').on('click', function(){
+    if (!audioOn){
+      var sound = new Audio('./resources/ts.mp3');
+      sound.play();
+      audioOn = true;
+    }  
+  });
 
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -24,17 +28,19 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     $('.lineupButton').on('click', function() {
-      var w = $('.barrier').width()/window.dancers.length;
-      var distr = -($('.barrier').height()/2);
+      var w = $('.barrier').width();
+      var distr = -($('.barrier').width()/2);
       if (dancers.length < 2) {
         dancers[0].top = $('.barrier').height()/2;
         dancers[0].left = w/2;
         dancers[0].setPosition();
       }
       else {
+        var accumulatedPosition = 0;
         window.dancers.forEach(function(dancer) {
-          dancer.top = $('.barrier').height()/2;
-          dancer.left = w+distr;
+          accumulatedPosition += w / (window.dancers.length + 1);
+          dancer.top = $('.barrier').height()/window.dancers.length;
+          dancer.left = accumulatedPosition;
           dancer.setPosition();
           distr += w;
         });
